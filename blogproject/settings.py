@@ -22,9 +22,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'i3k%m-808v3_)^h7975iw4v&fl5chq41^19j@u+b*vx7dvw*q$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost ', '39.107.243.152']
 
-ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -119,7 +119,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = (os.path.join(BASE_DIR, 'static').replace('\\','/'))
+STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
 
 # django-haystack
 HAYSTACK_CONNECTIONS = {
